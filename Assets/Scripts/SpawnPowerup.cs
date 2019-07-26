@@ -4,7 +4,7 @@ using System.Collections;
 public class SpawnPowerup : MonoBehaviour {
 	public GameObject Boost;
 	public GameObject Barrier;
-	public GameObject HealthPowerUp;
+	public GameObject Bomb;
 	public GameObject RangeDestructPowerUp;
 	public float min = 0.2f;
     public float max = 1.48f;
@@ -23,16 +23,16 @@ public class SpawnPowerup : MonoBehaviour {
 		switch (rand)
 		{
 			case 0:
-				Instantiate(Barrier, spawnPoint, Quaternion.identity);
+				Instantiate(Bomb, spawnPoint, Quaternion.identity);
 				break;
 			case 1:
-				Instantiate(Barrier, spawnPoint, Quaternion.identity);
+				Instantiate(Bomb, spawnPoint, Quaternion.identity);
 				break;
 			case 2:
-				Instantiate(Barrier, spawnPoint, Quaternion.identity);
+				Instantiate(Bomb, spawnPoint, Quaternion.identity);
 				break;
 			case 3:
-				Instantiate(Barrier, spawnPoint, Quaternion.identity);
+				Instantiate(Bomb, spawnPoint, Quaternion.identity);
 				break;
 			default:
 				break;
