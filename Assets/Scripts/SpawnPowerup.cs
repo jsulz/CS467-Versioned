@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class SpawnPowerup : MonoBehaviour {
-	public GameObject SpeedPowerUp;
+	public GameObject Boost;
 	public GameObject InvincibilityPowerUp;
 	public GameObject HealthPowerUp;
 	public GameObject RangeDestructPowerUp;
@@ -23,16 +23,16 @@ public class SpawnPowerup : MonoBehaviour {
 		switch (rand)
 		{
 			case 0:
-				Instantiate(SpeedPowerUp, spawnPoint, Quaternion.identity);
+				Instantiate(Boost, spawnPoint, Quaternion.identity);
 				break;
 			case 1:
-				Instantiate(InvincibilityPowerUp, spawnPoint, Quaternion.identity);
+				Instantiate(Boost, spawnPoint, Quaternion.identity);
 				break;
 			case 2:
-				Instantiate(HealthPowerUp, spawnPoint, Quaternion.identity);
+				Instantiate(Boost, spawnPoint, Quaternion.identity);
 				break;
 			case 3:
-				Instantiate(RangeDestructPowerUp, spawnPoint, Quaternion.identity);
+				Instantiate(Boost, spawnPoint, Quaternion.identity);
 				break;
 			default:
 				break;
