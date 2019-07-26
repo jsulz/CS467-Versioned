@@ -62,11 +62,10 @@ public class PowerUpBase : MonoBehaviour
     }
 
     /*
-        Kind of a stub function - the specific powerup classes do most of this work
+        Kind of a stub function - the specific powerup classes do most of this work this is just here in case we need it
      */
     protected virtual void powerUpEffect( PlayerBehaviour player )
     {
-        Debug.Log( "Added" );
     }
 
     /*

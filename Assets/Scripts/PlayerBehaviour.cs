@@ -89,8 +89,8 @@ public class PlayerBehaviour : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.gameObject.tag == "Enemy") {
-			Destroy (collision.gameObject);
 			if (godMode) return;
+			Destroy (collision.gameObject);
 			audioSource.PlayOneShot(absorb, 1F);
 			counter = gainSize;
 			counterMass = gainMass;
