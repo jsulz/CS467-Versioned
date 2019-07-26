@@ -5,7 +5,7 @@ public class SpawnPowerup : MonoBehaviour {
 	public GameObject Boost;
 	public GameObject Barrier;
 	public GameObject Bomb;
-	public GameObject RangeDestructPowerUp;
+	public GameObject Health;
 	public float min = 0.2f;
     public float max = 1.48f;
 	public float spawnTime = 1f;
@@ -23,16 +23,16 @@ public class SpawnPowerup : MonoBehaviour {
 		switch (rand)
 		{
 			case 0:
-				Instantiate(Bomb, spawnPoint, Quaternion.identity);
+				Instantiate(Health, spawnPoint, Quaternion.identity);
 				break;
 			case 1:
-				Instantiate(Bomb, spawnPoint, Quaternion.identity);
+				Instantiate(Health, spawnPoint, Quaternion.identity);
 				break;
 			case 2:
-				Instantiate(Bomb, spawnPoint, Quaternion.identity);
+				Instantiate(Health, spawnPoint, Quaternion.identity);
 				break;
 			case 3:
-				Instantiate(Bomb, spawnPoint, Quaternion.identity);
+				Instantiate(Health, spawnPoint, Quaternion.identity);
 				break;
 			default:
 				break;
