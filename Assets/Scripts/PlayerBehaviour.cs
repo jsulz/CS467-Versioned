@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class PlayerBehaviour : MonoBehaviour {
 	public static int score = 0;
@@ -35,8 +36,15 @@ public class PlayerBehaviour : MonoBehaviour {
 	public AudioClip powerup;
 	AudioSource audioSource;
 
+	// Our audio mixer
+	public AudioMixer audioMixer;
+
 	void Start () {
+		// Getting the master mixer
+		AudioMixerGroup[] audioMixGroup = audioMixer.FindMatchingGroups("Master");
 		audioSource = GetComponent<AudioSource>();
+		// And make sure we play through the proper mixer
+		audioSource.outputAudioMixerGroup = audioMixGroup[0];
 		animator = transform.GetComponentInChildren<Animator>();
 	}
 

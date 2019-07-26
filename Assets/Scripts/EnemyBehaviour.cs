@@ -5,7 +5,7 @@ public class EnemyBehaviour : MonoBehaviour {
 	public float speed = 1f;
 	void start () {}
 	void Update () {
-		if (Time.timeScale == 0) Destroy(gameObject);
+		if (Time.timeScale == 0 && !PauseScreen.GamePaused ) Destroy(gameObject);
 	}
 	void FixedUpdate () {
 		GetComponent<Rigidbody2D>().AddForce( Vector2.left * speed );
