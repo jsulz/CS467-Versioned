@@ -50,6 +50,7 @@ public class EndScreenScript : MonoBehaviour {
 				if (!audioSource.isPlaying) audioSource.Play();
 
 				// Added in the ability to access the menu from the end screen
+				// If the game is paused, then we don't want to show the end screen text
 				if( !PauseScreen.GamePaused ){
 					GetComponent<Text>().text = "Distance: " + Score.score + "\nBest Distance: " + Score.highScore +"\n\nTap to Restart" + "\n\nPress 'M' for Menu";
 				} else{

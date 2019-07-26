@@ -5,14 +5,19 @@ using UnityEngine.Audio;
 
 public class PowerUpBase : MonoBehaviour
 {
+    // We don't use this currently, but it's just a string; needs to be set in Unity
     public string powerUpName;
     
+    // Needs to be added on the prefab in unity so we know what clip to play
     public AudioClip soundclip;
-	// Our audio mixer
+	// Our audio mixer - needs to be added on the prefab in unity so we know what mixer to user
 	public AudioMixer audioMixer;
 
-    public PlayerBehaviour Ship;
+    // A reference to our player - we grab it on collision, so it's not necessary to worry about doing anything in Unity
+    public PlayerBehaviour player;
 
+    // Some class variables that we use to determine if the powerup is destroyed immediately or after some time
+    // set in Unity or in the inherited class
     public bool expiresOnTime;
     public bool destoryable = false;
     private IEnumerator coroutine;
@@ -36,21 +41,25 @@ public class PowerUpBase : MonoBehaviour
         if( other.gameObject.tag == "Player" )
         {
 
-            Ship = other.GetComponent<PlayerBehaviour>();
+            // Then get the player
+            player = other.GetComponent<PlayerBehaviour>();
 
+            // Remove the visible components of the powerup
             GetComponent<CircleCollider2D>().enabled = false;
             GetComponent<SpriteRenderer>().enabled = false;
 
-            doSpecialEffects( Ship );
+            // Do whatever special effects are needed
+            doSpecialEffects( player );
 
+            // And determine how to manage the powerup
             if( expiresOnTime )
             {
-                coroutine = CountDown( Ship );
+                coroutine = CountDown( player );
                 StartCoroutine(coroutine);
             }
             else 
             {
-                powerUpEffect( Ship );
+                powerUpEffect( player );
             }
 
         } 
@@ -69,10 +78,11 @@ public class PowerUpBase : MonoBehaviour
     }
 
     /*
-        Destroy the powerup
+        Destroy the powerup and reset animation
      */
     protected virtual void removePowerUpEffect( PlayerBehaviour player )
     {
+        // Then we destroy the powerup
         if( destoryable && !expiresOnTime )
         {
             Destroy( gameObject.transform.root.gameObject );

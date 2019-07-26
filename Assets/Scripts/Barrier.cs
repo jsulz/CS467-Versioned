@@ -23,6 +23,9 @@ public class Barrier : PowerUpBase
         player.godMode = false;
     }
 
+    /*
+        Set out animation
+     */
     protected override void doSpecialEffects( PlayerBehaviour player )
     {
 		base.doSpecialEffects( player );
