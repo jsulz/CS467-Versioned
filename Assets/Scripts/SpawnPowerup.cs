@@ -2,16 +2,40 @@
 using System.Collections;
 
 public class SpawnPowerup : MonoBehaviour {
-	public GameObject[] powerups;
-	public float max = 1.45f;
+	public GameObject SpeedPowerUp;
+	public GameObject InvincibilityPowerUp;
+	public GameObject HealthPowerUp;
+	public GameObject RangeDestructPowerUp;
 	public float min = 0.2f;
-	public float time = 2f;
+    public float max = 1.48f;
+	public float spawnTime = 1f;
+	public float spawnDelay = 10f;
 
 	void Start() {  
-		InvokeRepeating("Spawn", time, time);
+		//https://docs.unity3d.com/ScriptReference/MonoBehaviour.InvokeRepeating.html
+		InvokeRepeating("Spawn", spawnTime, spawnDelay);
 	}
 	void Spawn() {  
 		var spawnPoint = new Vector2(transform.position.x, Random.Range(max, min));
-		Instantiate(powerups[Random.Range(0,powerups.Length)], spawnPoint, Quaternion.identity);
+		//https://docs.unity3d.com/ScriptReference/Random.Range.html
+		int rand = Random.Range( 0, 4 );
+		//https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
+		switch (rand)
+		{
+			case 0:
+				Instantiate(SpeedPowerUp, spawnPoint, Quaternion.identity);
+				break;
+			case 1:
+				Instantiate(InvincibilityPowerUp, spawnPoint, Quaternion.identity);
+				break;
+			case 2:
+				Instantiate(HealthPowerUp, spawnPoint, Quaternion.identity);
+				break;
+			case 3:
+				Instantiate(RangeDestructPowerUp, spawnPoint, Quaternion.identity);
+				break;
+			default:
+				break;
+		}
 	}
 }
