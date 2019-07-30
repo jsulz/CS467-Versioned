@@ -54,12 +54,12 @@ public class PowerUpBase : MonoBehaviour
             // And determine how to manage the powerup
             if( expiresOnTime )
             {
-                coroutine = CountDown( player );
-                StartCoroutine(coroutine);
+                //coroutine = CountDown( player );
+                //StartCoroutine(coroutine);
             }
             else 
             {
-                powerUpEffect( player );
+                //powerUpEffect( player );
             }
 
         } 
